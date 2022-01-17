@@ -1,0 +1,101 @@
+#include <GL/glut.h>
+
+void display()
+{
+    glClear( GL_COLOR_BUFFER_BIT );
+    //segitiga
+    glBegin(GL_TRIANGLES);
+    glColor3f( 171, 224, 11);  
+      glVertex2f(0.1,0.1);
+      glVertex2f(0.2,0.1);
+	  glVertex2f(0.1,0.2);
+	glEnd();
+	
+	//persegi empat
+    glBegin(GL_TRIANGLE_STRIP);
+    glColor3f( 0, 1, 1);
+	  glVertex2f(0.1,0.3);
+      glVertex2f(0.1,0.4);
+    glColor3f( 0, 1, 1);
+	  glVertex2f(0.2,0.3);
+	  glVertex2f(0.2,0.4);
+	glEnd();
+	
+	//kipas
+	glBegin(GL_TRIANGLE_FAN);
+    glColor3f( 0, 3, 0);
+      glVertex2f(0.35,0.3);
+      glVertex2f(0.55,0.5);
+	  glVertex2f(0.6,0.45);
+	glColor3f( 0, 2, 5);
+	  glVertex2f(0.62,0.4);
+	  glVertex2f(0.64,0.3);
+	glColor3f( 0, 2, 5);
+	  glVertex2f(0.64,0.3);
+	  glVertex2f(0.62,0.2);
+	glColor3f( 0, 2, 5);
+	  glVertex2f(0.62,0.2);
+	  glVertex2f(0.55,0.1);
+    glEnd();
+    
+    //batu ruby miring
+    glBegin(GL_QUADS);
+	 glColor3f( 1, 0, 0); 
+	  glVertex2f(0.35,0.75);
+      glVertex2f(0.45,0.65);
+	  glVertex2f(0.55,0.75);
+	  glVertex2f(0.45,0.85);
+	glColor3f( 1, 1, 0);
+      glVertex2f(0.35,0.65);
+      glVertex2f(0.35,0.75);
+	  glVertex2f(0.45,0.75);
+	  glVertex2f(0.45,0.65);
+	glColor3f( 1, 1, 1);  
+	  glVertex2f(0.45,0.75);
+      glVertex2f(0.45,0.85);
+	  glVertex2f(0.55,0.85);
+	  glVertex2f(0.55,0.75);
+    glEnd();
+    
+    //persegi panjang
+    glBegin(GL_QUAD_STRIP);
+    glColor3f( 1, 1, 1);
+      glVertex2f(0.1,0.5);
+      glVertex2f(0.2,0.5);
+    glColor3f( 1, 0, 1);
+	  glVertex2f(0.1,0.6);
+	  glVertex2f(0.2,0.6);
+	  glVertex2f(0.1,0.7);
+	  glVertex2f(0.2,0.7);
+    glEnd();
+    
+    //batu ruby
+    glBegin(GL_POLYGON);
+    glColor3f( 1, 0, 0);
+      glVertex2f(0.15,0.75);
+      glVertex2f(0.1,0.8);
+      glVertex2f(0.1,0.9);
+      glVertex2f(0.15,0.95);
+      glVertex2f(0.2,0.9);
+      glVertex2f(0.2,0.8);
+    glEnd();
+    glutSwapBuffers();
+    
+}
+void Initialize() {
+glClearColor(0.0, 0.0, 0.0, 0.0);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
+}
+int main( int argc, char **argv )
+{
+    glutInit( &argc, argv );
+    glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE );
+    glutInitWindowSize( 400, 400 );
+    glutCreateWindow( "GL" );
+    glutDisplayFunc( display );
+    Initialize();
+    glutMainLoop();
+    return 0;
+}
